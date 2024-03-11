@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
+console.log(process.env.PORT);
 
 app.get("/", (_req, res) => {
   res.json({ message: "Home Route" });
