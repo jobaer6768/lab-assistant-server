@@ -14,6 +14,15 @@ app.get("/", (_req, res) => {
   res.json({ message: "Home Route" });
 });
 
+app.use((err, _req, res, _next) => {
+  console.log(err);
+
+  const message = err.message ? err.message : "Server error Occured";
+  const status = err.status ? err.status : 500;
+
+  res.status(status).json({ message });
+});
+
 connectDB(process.env.DB_URL_LOCAL)
   .then(() => {
     console.log("Database Connected!");
