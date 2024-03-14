@@ -1,11 +1,12 @@
 const authService = require("../services/auth");
+const error = require("../utils/error");
 
 const registerController = async (req, res, next) => {
-  const { name, studentID, email, password, phoneNumber } = req.body;
+  const { name, studentID, email, password, roles } = req.body;
 
   //   validation
   if (!name || !studentID || !email || !password) {
-    res.status(400).json({ message: "Invalid data" });
+    throw error("Invalid data", 400);
   }
 
   try {
@@ -14,6 +15,7 @@ const registerController = async (req, res, next) => {
       studentID,
       email,
       password,
+      roles,
     });
 
     return res.status(201).json({ message: "User created successfully", user });

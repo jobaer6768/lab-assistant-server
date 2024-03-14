@@ -24,6 +24,12 @@ const userSchema = new Schema({
     minlength: [6, "password is too short"],
     required: true,
   },
+  roles: {
+    type: String,
+    enum: ["ADMIN", "USER"],
+    default: "USER",
+    required: true,
+  },
 });
 
 const User = model("User", userSchema);
