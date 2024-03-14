@@ -2,11 +2,13 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 const connectDB = require("./db");
-const app = express();
+const routes = require("./routes");
 const PORT = process.env.PORT || 5000;
 
+const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(routes);
 
 app.get("/", (_req, res) => {
   res.json({ message: "Home Route" });
