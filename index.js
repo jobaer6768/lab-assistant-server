@@ -23,7 +23,7 @@ app.use((err, _req, res, _next) => {
   res.status(status).json({ message });
 });
 
-connectDB(process.env.DB_URL_LOCAL)
+connectDB(process.env.DB_URL)
   .then(() => {
     console.log("Database Connected!");
 
