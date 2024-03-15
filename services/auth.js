@@ -1,4 +1,5 @@
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 const error = require("../utils/error");
 const userService = require("./user");
 
@@ -21,4 +22,22 @@ const registerService = async ({ name, studentID, email, password, roles }) => {
   });
 };
 
-module.exports = { registerService };
+const loginService = async ({ email, password }) => {
+  const user = await userService.findUserByProperty("email", email);
+  if (!user) throw error("Invalid Credential", 400);
+
+  const isMatch = await bcrypt.compare(password, user.password);
+  if (!isMatch) throw error("Invalid Credential", 400);
+
+  const payload = {
+    _id: user._id,
+    name: user.name,
+    email: user.email,
+    roles: user.roles,
+    studentID: user.studentID,
+  };
+  // TODO: Secret-key to be updated later
+  return jwt.sign(payload, "secret-key", { expiresIn: "2h" });
+};
+
+module.exports = { registerService, loginService };

@@ -24,4 +24,14 @@ const registerController = async (req, res, next) => {
   }
 };
 
-module.exports = { registerController };
+const loginController = async (req, res, next) => {
+  const { email, password } = req.body;
+  try {
+    const token = await authService.loginService({ email, password });
+    return res.status(200).json({ message: "Login Successful", token });
+  } catch (e) {
+    next(e);
+  }
+};
+
+module.exports = { registerController, loginController };
