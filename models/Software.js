@@ -107,5 +107,5 @@ const softwareSchema = new Schema({
   },
 });
 
-const Software = model("User", softwareSchema);
+const Software = model("Software", softwareSchema);
 module.exports = Software;
