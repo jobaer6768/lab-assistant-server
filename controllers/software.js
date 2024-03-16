@@ -24,6 +24,7 @@ const postDevice = async (req, res, next) => {
     deviceName,
     brand,
     model,
+    image,
     processor,
     processorBrand,
     processorType,
@@ -54,6 +55,7 @@ const postDevice = async (req, res, next) => {
       deviceName,
       brand,
       model,
+      image,
       processor,
       processorBrand,
       processorType,
@@ -91,6 +93,7 @@ const patchDeviceByID = async (req, res, next) => {
     deviceName,
     brand,
     model,
+    image,
     processor,
     processorBrand,
     processorType,
@@ -125,6 +128,7 @@ const patchDeviceByID = async (req, res, next) => {
 
     device.deviceName = deviceName ?? device.deviceName;
     device.brand = brand ?? device.brand;
+    device.image = image ?? device.image;
     device.processor = processor ?? device.processor;
     device.processorBrand = processorBrand ?? device.processorBrand;
     device.processorType = processorType ?? device.processorType;

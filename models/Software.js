@@ -13,6 +13,9 @@ const softwareSchema = new Schema({
     type: String,
     required: true,
   },
+  image: {
+    type: String,
+  },
   processor: {
     type: String,
     required: true,

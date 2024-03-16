@@ -15,6 +15,7 @@ const findDeviceByProperty = (key, value) => {
 
 const createNewDevice = ({
   deviceName,
+  image,
   brand,
   model,
   processor,
@@ -45,6 +46,7 @@ const createNewDevice = ({
     deviceName,
     brand,
     model,
+    image,
     processor,
     processorBrand,
     processorType,
