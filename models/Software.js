@@ -13,6 +13,9 @@ const softwareSchema = new Schema({
     type: String,
     required: true,
   },
+  image: {
+    type: String,
+  },
   processor: {
     type: String,
     required: true,
@@ -45,15 +48,67 @@ const softwareSchema = new Schema({
     type: String,
     required: true,
   },
-  ram: {
+  RAM: {
     type: String,
     required: true,
   },
-  installedRamDetails: {
+  installedRAMDetails: {
+    type: String,
+    required: true,
+  },
+  RAMType: {
+    type: String,
+    required: true,
+  },
+  RAMBus: {
+    type: String,
+    required: true,
+  },
+  totalRAMSlot: {
+    type: String,
+    required: true,
+  },
+  emptyRAMSlot: {
+    type: String,
+    required: true,
+  },
+  storage: {
+    type: String,
+    required: true,
+  },
+  installedHDDType: {
+    type: String,
+    required: true,
+  },
+  installedSSDType: {
+    type: String,
+    required: true,
+  },
+  speaker: {
+    type: String,
+    required: true,
+  },
+  microphone: {
+    type: String,
+    required: true,
+  },
+  webCam: {
+    type: String,
+    required: true,
+  },
+  keyboard: {
+    type: String,
+    required: true,
+  },
+  mouse: {
+    type: String,
+    required: true,
+  },
+  operatingSystem: {
     type: String,
     required: true,
   },
 });
 
-const Software = model("User", softwareSchema);
+const Software = model("Software", softwareSchema);
 module.exports = Software;
